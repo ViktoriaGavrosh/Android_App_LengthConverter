@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/border_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/border" />
+
+        <ImageView
+            android:id="@+id/icon_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/how_much"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/how_much"
+            app:srcCompat="@drawable/ic_question" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/how_much"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/how_much"
+            app:layout_constraintStart_toEndOf="@id/icon_enter"
+            app:layout_constraintTop_toBottomOf="@id/border_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/how_much_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textAppearance="?attr/textAppearanceBody1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/length_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/length_inches"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/how_much"
+            app:layout_constraintTop_toBottomOf="@id/how_much">
+
+            <RadioButton
+                android:id="@+id/length_inches"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inches"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <RadioButton
+                android:id="@+id/length_feet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feet"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <RadioButton
+                android:id="@+id/length_yards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yards"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/icon_centimeters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/centimeters_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/centimeters_switch"
+            app:srcCompat="@drawable/ic_check" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/centimeters_switch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingVertical="16dp"
+            android:text="@string/only_centimeters"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_centimeters"
+            app:layout_constraintTop_toBottomOf="@id/length_group" />
+
+        <Button
+            android:id="@+id/convert_button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingVertical="16dp"
+            android:text="@string/convert"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/centimeters_switch" />
+
+        <ImageView
+            android:id="@+id/icon_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/result_meters"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/result_meters"
+            app:srcCompat="@drawable/ic_top" />
+
+        <TextView
+            android:id="@+id/result_meters"
+            style="@style/Widget.LengthConverter.TextView"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="end"
+            android:text="@string/zero"
+            app:layout_constraintStart_toEndOf="@id/icon_result"
+            app:layout_constraintTop_toBottomOf="@id/convert_button" />
+
+        <TextView
+            android:id="@+id/meter"
+            style="@style/Widget.LengthConverter.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meter"
+            app:layout_constraintBottom_toBottomOf="@id/result_meters"
+            app:layout_constraintStart_toEndOf="@id/result_meters"
+            app:layout_constraintTop_toTopOf="@id/result_meters" />
+
+        <TextView
+            android:id="@+id/result_centimeters"
+            style="@style/Widget.LengthConverter.TextView"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/zero"
+            app:layout_constraintBottom_toBottomOf="@id/result_meters"
+            app:layout_constraintStart_toEndOf="@id/meter"
+            app:layout_constraintTop_toTopOf="@id/result_meters" />
+
+        <TextView
+            android:id="@+id/centimeter"
+            style="@style/Widget.LengthConverter.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/centimeter"
+            app:layout_constraintBottom_toBottomOf="@id/result_meters"
+            app:layout_constraintStart_toEndOf="@id/result_centimeters"
+            app:layout_constraintTop_toTopOf="@id/result_meters" />
+
+        <ImageView
+            android:id="@+id/border_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_centimeters"
+            app:srcCompat="@drawable/border" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

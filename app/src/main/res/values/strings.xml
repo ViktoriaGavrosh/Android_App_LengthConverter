@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Length Converter</string>
+    <string name="how_much">How much?</string>
+    <string name="inches">inches</string>
+    <string name="feet">feet</string>
+    <string name="yards">yards</string>
+    <string name="convert">Convert</string>
+    <string name="zero">0</string>
+    <string name="only_centimeters">Only centimeters?</string>
+    <string name="meter">m</string>
+    <string name="centimeter">cm</string>
+</resources>

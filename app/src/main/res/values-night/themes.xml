@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.LengthConverter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green_night</item>
+        <item name="colorOnPrimary">@color/gray_dark</item>
+        <item name="colorSecondary">@color/green_gray_light</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:background">@color/gray_dark</item>
+    </style>
+</resources>
