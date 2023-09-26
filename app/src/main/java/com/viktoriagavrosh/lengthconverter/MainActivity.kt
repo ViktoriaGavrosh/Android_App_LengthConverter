@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             binding.resultMeters.text = "0"
             binding.resultCentimeters.text = result.roundToInt().toString()
         } else {
-            binding.resultMeters.text = (result / 100).roundToInt().toString()
+            binding.resultMeters.text = (result / 100).toInt().toString()
             binding.resultCentimeters.text = (result % 100).roundToInt().toString()
         }
     }
