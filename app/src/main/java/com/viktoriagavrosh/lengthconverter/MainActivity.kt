@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             showResult(result)
         }
 
+        // The keyboard will close after pressing Enter
         binding.howMuchEditText.setOnKeyListener { v, keyCode, _ ->
             handleKeyEvent(v, keyCode)
         }
@@ -57,10 +58,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Function closes the keyboard after pressing Enter
     private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
             return true
         }
         return false
